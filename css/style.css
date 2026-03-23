@@ -1450,6 +1450,10 @@ button { font-family: inherit; cursor: pointer; }
   .offer-banner-img img { height: 130px; }
   .hero-info { left: 14px; }
   .hero-info h1 { font-size: 20px; }
+  /* إخفاء الـ side banners على الموبايل */
+  .hero-section .col-xl-4 { display: none !important; }
+  .hero-section .col-xl-8 { width: 100% !important; flex: 0 0 100% !important; max-width: 100% !important; }
+  .hero-btn { padding: 7px 14px; font-size: 13px; }
 }
 
 @media (max-width: 480px) {
