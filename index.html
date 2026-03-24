@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gadgetize — Worldwide Electronics Store</title>
+    <title>Gadgetize</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link
       href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap"
       rel="stylesheet">
 
@@ -23,13 +22,13 @@
 
     <!-- Our CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
+
+    <link rel="stylesheet" href="css/dark-mode.css">
+
   </head>
   <body>
 
-    <!-- ============================================================
-     TOP BAR
-     ============================================================ -->
+    <!-- TOP BAR-->
     <div class="top-bar">
       <div class="container">
         <span class="top-bar-welcome">Welcome to Worldwide Electronics
@@ -39,30 +38,29 @@
           <!-- Language Dropdown -->
           <div class="tb-dropdown" id="langDropdown">
             <button class="tb-btn" id="langBtn">
-              <img src="https://flagcdn.com/w20/us.png" alt="English"
+              <img src="./imgs/imgi_1_flag_en.png" alt="English"
                 class="tb-flag">
               <span class="tb-label">English</span>
               <i class="fa-solid fa-chevron-down tb-arrow"></i>
             </button>
             <ul class="tb-menu" id="langMenu">
-              <li class="tb-item active"
-                data-flag="https://flagcdn.com/w20/us.png" data-label="English">
-                <img src="https://flagcdn.com/w20/us.png" alt="English"
+              <li class="tb-item active" data-label="English">
+                <img src="./imgs/imgi_1_flag_en.png" alt="English"
                   class="tb-flag"> English
               </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/es.png"
-                data-label="Español">
-                <img src="https://flagcdn.com/w20/es.png" alt="Español"
+
+              <li class="tb-item" data-label="Español">
+                <img src="./imgs/imgi_2_flag_es.png" alt="Español"
                   class="tb-flag"> Español
               </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/cn.png"
-                data-label="简体中文">
-                <img src="https://flagcdn.com/w20/cn.png" alt="简体中文"
+
+              <li class="tb-item" data-label="简体中文">
+                <img src="./imgs/imgi_3_flag_zh-CN.png" alt="简体中文"
                   class="tb-flag"> 简体中文
               </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/it.png"
-                data-label="Italiano">
-                <img src="https://flagcdn.com/w20/it.png" alt="Italiano"
+
+              <li class="tb-item" data-label="Italiano">
+                <img src="./imgs/imgi_4_flag_it.png" alt="Italiano"
                   class="tb-flag"> Italiano
               </li>
             </ul>
@@ -73,88 +71,41 @@
           <!-- Currency Dropdown -->
           <div class="tb-dropdown" id="currencyDropdown">
             <button class="tb-btn" id="currencyBtn">
-              <img src="https://flagcdn.com/w20/pk.png" alt="Pakistan"
-                class="tb-flag">
               <span class="tb-label">Pakistan (PKR Rs)</span>
               <i class="fa-solid fa-chevron-down tb-arrow"></i>
             </button>
             <ul class="tb-menu tb-menu-right" id="currencyMenu">
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/au.png"
-                data-label="Australia (PKR Rs)">
-                <img src="https://flagcdn.com/w20/au.png" alt="Australia"
-                  class="tb-flag"> Australia (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/at.png"
-                data-label="Austria (PKR Rs)">
-                <img src="https://flagcdn.com/w20/at.png" alt="Austria"
-                  class="tb-flag"> Austria (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/be.png"
-                data-label="Belgium (PKR Rs)">
-                <img src="https://flagcdn.com/w20/be.png" alt="Belgium"
-                  class="tb-flag"> Belgium (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/de.png"
-                data-label="Germany (PKR Rs)">
-                <img src="https://flagcdn.com/w20/de.png" alt="Germany"
-                  class="tb-flag"> Germany (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/it.png"
-                data-label="Italy (PKR Rs)">
-                <img src="https://flagcdn.com/w20/it.png" alt="Italy"
-                  class="tb-flag"> Italy (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/nl.png"
-                data-label="Netherlands (PKR Rs)">
-                <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands"
-                  class="tb-flag"> Netherlands (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/no.png"
-                data-label="Norway (PKR Rs)">
-                <img src="https://flagcdn.com/w20/no.png" alt="Norway"
-                  class="tb-flag"> Norway (PKR Rs)
-              </li>
-              <li class="tb-item active"
-                data-flag="https://flagcdn.com/w20/pk.png"
-                data-label="Pakistan (PKR Rs)">
-                <img src="https://flagcdn.com/w20/pk.png" alt="Pakistan"
-                  class="tb-flag"> Pakistan (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/pl.png"
-                data-label="Poland (PKR Rs)">
-                <img src="https://flagcdn.com/w20/pl.png" alt="Poland"
-                  class="tb-flag"> Poland (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/pt.png"
-                data-label="Portugal (PKR Rs)">
-                <img src="https://flagcdn.com/w20/pt.png" alt="Portugal"
-                  class="tb-flag"> Portugal (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/es.png"
-                data-label="Spain (PKR Rs)">
-                <img src="https://flagcdn.com/w20/es.png" alt="Spain"
-                  class="tb-flag"> Spain (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/gb.png"
-                data-label="United Kingdom (PKR Rs)">
-                <img src="https://flagcdn.com/w20/gb.png" alt="UK"
-                  class="tb-flag"> United Kingdom (PKR Rs)
-              </li>
-              <li class="tb-item" data-flag="https://flagcdn.com/w20/us.png"
-                data-label="United States (PKR Rs)">
-                <img src="https://flagcdn.com/w20/us.png" alt="USA"
-                  class="tb-flag"> United States (PKR Rs)
-              </li>
+              <li class="tb-item" data-label="Australia (AUD $)">Australia (AUD
+                $)</li>
+              <li class="tb-item" data-label="Austria (EUR €)">Austria (EUR
+                €)</li>
+              <li class="tb-item" data-label="Belgium (EUR €)">Belgium (EUR
+                €)</li>
+              <li class="tb-item" data-label="Germany (EUR €)">Germany (EUR
+                €)</li>
+              <li class="tb-item" data-label="Italy (EUR €)">Italy (EUR €)</li>
+              <li class="tb-item" data-label="Netherlands (EUR €)">Netherlands
+                (EUR €)</li>
+              <li class="tb-item" data-label="Norway (NOK kr)">Norway (NOK
+                kr)</li>
+              <li class="tb-item active" data-label="Pakistan (PKR Rs)">Pakistan
+                (PKR Rs)</li>
+              <li class="tb-item" data-label="Poland (PLN zł)">Poland (PLN
+                zł)</li>
+              <li class="tb-item" data-label="Portugal (EUR €)">Portugal (EUR
+                €)</li>
+              <li class="tb-item" data-label="Spain (EUR €)">Spain (EUR €)</li>
+              <li class="tb-item" data-label="United Kingdom (GBP £)">United
+                Kingdom (GBP £)</li>
+              <li class="tb-item" data-label="United States (USD $)">United
+                States (USD $)</li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!-- ============================================================
-     HEADER
-     ============================================================ -->
+    <!-- HEADER -->
     <header class="site-header">
       <div class="container">
         <div class="header-inner">
@@ -214,9 +165,7 @@
       </div>
     </header>
 
-    <!-- ============================================================
-     NAVBAR
-     ============================================================ -->
+    <!--  NAVBAR -->
     <nav class="main-nav">
       <div class="container">
         <div class="nav-inner">
@@ -456,12 +405,12 @@
       </div>
     </nav>
 
-    <!-- ============================================================
+    <!-- 
      MAIN CONTENT
-     ============================================================ -->
+      -->
     <main class="site-main">
 
-      <!-- ========== SECTION 1: HERO / LANDING ========== -->
+      <!--  SECTION 1: HERO / LANDING  -->
       <section class="hero-section">
         <div class="container">
           <div class="row g-3">
@@ -542,7 +491,10 @@
                     <img src="imgs/imgi_16_hero-Banner-2.png"
                       alt="Side Banner 1">
                     <div class="hero-info">
-                      <h5>4K LCD<br>Quantum Vision LCD</h5>
+                     <h5>
+                        <span class="text-warning">4K</span> LCD<br>
+                        Quantum Vision LCD
+                      </h5>
                       <p>Limited Time Online Only!</p>
                     </div>
                   </div>
@@ -552,8 +504,12 @@
                     <img src="imgs/imgi_17_hero-Banner-3.png"
                       alt="Side Banner 2">
                     <div class="hero-info">
-                      <h5>4K LCD<br>Quantum Vision LCD</h5>
+                      <h5>
+                        <span class="text-warning">4K</span> LCD<br>
+                        Quantum Vision LCD
+                      </h5>
                       <p>Limited Time Online Only!</p>
+
                     </div>
                   </div>
                 </div>
@@ -564,43 +520,44 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 2: CATEGORIES ========== -->
+      <!--  SECTION 2: CATEGORIES  -->
       <section class="cat-section">
         <div class="container">
           <div class="cat-grid">
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_24_cat07.png"
-                  alt="MacBook/PCs"></div><h3>MacBook/PCs</h3><p>3+
+                  src="./imgs/imgi_70_pro05_small.png"
+                  alt="MacBook/PCs"></div><h3>MacBook</h3><p>3+
                 items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_22_cat05.png" alt="iPad Mini"></div><h3>iPad
+                  src="./imgs/unnamed-removebg-preview.png"
+                  alt="iPad Mini"></div><h3>iPad
                 Mini</h3><p>5+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_23_cat06.png"
+                  src="./imgs/imgi_86_pro04.png"
                   alt="Laptop"></div><h3>Laptop</h3><p>8+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_33_cat01.png"
+                  src="imgs/imgi_69_pro09_small.png"
                   alt="Keyboard"></div><h3>Keyboard</h3><p>6+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_20_cat03.png"
+                  src="imgs/imgi_71_pro08_small.png"
                   alt="Mouse"></div><h3>Mouse</h3><p>4+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_32_pro01.png"
+                  src="imgs/imgi_84_pro06.png"
                   alt="Headphone"></div><h3>Headphone</h3><p>7+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_24_cat07.png"
+                  src="imgs/imgi_21_cat04.png"
                   alt="Monitor"></div><h3>Monitor</h3><p>5+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_20_cat03.png"
+                  src="imgs/imgi_32_pro01.png"
                   alt="Gaming"></div><h3>Gaming</h3><p>9+ items</p></div>
             <div class="cat-card"><div class="cat-circle"><img
-                  src="imgs/imgi_23_cat06.png"
+                  src="imgs/imgi_36_pro10.png"
                   alt="Tablets"></div><h3>Tablets</h3><p>3+ items</p></div>
           </div>
         </div>
       </section>
 
-      <!-- ========== SECTION 3: FEATURED PRODUCTS ========== -->
+      <!--  SECTION 3: FEATURED PRODUCTS  -->
       <section class="featured-section">
         <div class="container">
           <div class="row g-3">
@@ -610,7 +567,7 @@
               <div class="special-offer">
                 <h4>Special Offer</h4>
                 <div class="offer-img">
-                  <img src="imgs/mmmmm.webp" alt="Special Offer">
+                  <img src="imgs/imgi_28_gamejoystick.png" alt="Special Offer">
                 </div>
                 <p>Aero Control Pro Joysticks</p>
                 <strong>$120.00</strong>
@@ -634,7 +591,7 @@
                 <h3 class="featured-title">Feature Products</h3>
                 <ul class="featured-tabs">
                   <li class="tab-item active" data-tab="all">All Product</li>
-                  <li class="tab-item" data-tab="laptop">Laptop</li>
+                  <li class="tab-item" data-tab="mobile">Mobile</li>
                   <li class="tab-item" data-tab="keyboard">Keyboard</li>
                   <li class="tab-item" data-tab="mouse">Mouse</li>
                   <li class="tab-item" data-tab="headphone">Headphone</li>
@@ -644,9 +601,9 @@
               <!-- Grid -->
               <div class="featured-grid" id="featuredGrid">
 
-                <div class="pro-card" data-cat="laptop">
+                <div class="pro-card" data-cat="mobile">
                   <div class="pro-card-img">
-                    <img src="imgs/imgi_103_cat04.png" alt="Nexus Mobile Pro">
+                    <img src="imgs/imgi_31_pro07.png" alt="Nexus Mobile Pro">
                     <span class="pro-badge">-20%</span>
                     <div class="pro-card-actions">
                       <button class="pro-action-btn"><i
@@ -661,7 +618,7 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Nexus Mobile Pro 256GB</h3>
+                    <h3 class="pro-name">OnePlus 11</h3>
                     <p class="pro-desc">High-performance smartphone with
                       advanced camera system</p>
                     <div class="pro-price"><span
@@ -671,9 +628,9 @@
                   </div>
                 </div>
 
-                <div class="pro-card" data-cat="headphone">
+                <div class="pro-card" data-cat="keyboard">
                   <div class="pro-card-img">
-                    <img src="imgs/imgi_101_cat02.png"
+                    <img src="imgs/imgi_30_pro09.png"
                       alt="Pure Bass Headphones">
                     <span class="pro-badge">-15%</span>
                     <div class="pro-card-actions">
@@ -689,17 +646,17 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Pure Bass Headphones</h3>
+                    <h3 class="pro-name">Keyboard</h3>
                     <p class="pro-desc">Premium sound quality with noise
                       cancellation technology</p>
                     <div class="pro-price"><span
-                        class="price-old">$180.00</span><span
-                        class="price-new">$153.00</span></div>
+                        class="price-old">$120.00</span><span
+                        class="price-new">$99.00</span></div>
                     <button class="pro-cart-btn">Add To Cart</button>
                   </div>
                 </div>
 
-                <div class="pro-card" data-cat="mouse">
+                <div class="pro-card" data-cat="mobile">
                   <div class="pro-card-img">
                     <img src="imgs/imgi_38_pro03.png" alt="Hyper Glide Mouse">
                     <span class="pro-badge">-10%</span>
@@ -716,19 +673,20 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Hyper Glide Mouse</h3>
+                    <h3 class="pro-name">iPhone 14 Pro Max</h3>
                     <p class="pro-desc">Ultra-precise gaming mouse with RGB
                       lighting system</p>
                     <div class="pro-price"><span
-                        class="price-old">$90.00</span><span
-                        class="price-new">$81.00</span></div>
+                        class="price-old">$900.00</span><span
+                        class="price-new">$799.00</span></div>
                     <button class="pro-cart-btn">Add To Cart</button>
                   </div>
                 </div>
 
-                <div class="pro-card" data-cat="keyboard">
+                <div class="pro-card" data-cat="mouse">
                   <div class="pro-card-img">
-                    <img src="imgs/imgi_33_cat01.png" alt="Silent Touch Pro">
+                    <img src="imgs/imgi_71_pro08_small.png"
+                      alt="Silent Touch Pro">
                     <span class="pro-badge">-12%</span>
                     <div class="pro-card-actions">
                       <button class="pro-action-btn"><i
@@ -743,17 +701,17 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Silent Touch Pro</h3>
+                    <h3 class="pro-name">Wireless Mouse</h3>
                     <p class="pro-desc">Mechanical keyboard with silent switches
                       and backlight</p>
                     <div class="pro-price"><span
-                        class="price-old">$130.00</span><span
-                        class="price-new">$114.00</span></div>
+                        class="price-old">$45.00</span><span
+                        class="price-new">$30.00</span></div>
                     <button class="pro-cart-btn">Add To Cart</button>
                   </div>
                 </div>
 
-                <div class="pro-card" data-cat="laptop">
+                <div class="pro-card" data-cat="headphone">
                   <div class="pro-card-img">
                     <img src="imgs/imgi_32_pro01.png"
                       alt="Ultra Tech Book Plus">
@@ -771,7 +729,7 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Ultra Tech Book Plus</h3>
+                    <h3 class="pro-name">Gaming Headset</h3>
                     <p class="pro-desc">Lightweight laptop with all-day battery
                       and stunning display</p>
                     <div class="pro-price"><span
@@ -783,7 +741,9 @@
 
                 <div class="pro-card" data-cat="headphone">
                   <div class="pro-card-img">
-                    <img src="imgs/imgi_39_pro06.png" alt="Elite Audio Gear">
+                    <img src="imgs/imgi_84_pro06.png" alt="Elite Audio Gear">
+                    <span class="pro-badge">-25%</span>
+
                     <div class="pro-card-actions">
                       <button class="pro-action-btn"><i
                           class="fa-regular fa-heart"></i><span
@@ -797,7 +757,7 @@
                     </div>
                   </div>
                   <div class="pro-card-body">
-                    <h3 class="pro-name">Elite Audio Gear</h3>
+                    <h3 class="pro-name"> Premium Wireless Headphones </h3>
                     <p class="pro-desc">Studio-grade audio experience for
                       professionals</p>
                     <div class="pro-price"><span
@@ -813,14 +773,14 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 4: POPULAR PRODUCTS ========== -->
+      <!--  SECTION 4: POPULAR PRODUCTS  -->
       <section class="rec-section">
         <div class="container">
           <div class="rec-section-header">
             <h3 class="rec-section-title">Popular Products</h3>
             <ul class="rec-tabs">
               <li class="rec-tab active" data-filter="all">All Product</li>
-              <li class="rec-tab" data-filter="laptop">Laptop</li>
+              <li class="rec-tab" data-filter="ipad">Ipad</li>
               <li class="rec-tab" data-filter="keyboard">Keyboard</li>
               <li class="rec-tab" data-filter="mouse">Mouse</li>
               <li class="rec-tab" data-filter="headphone">Headphone</li>
@@ -830,8 +790,8 @@
 
             <div class="rec-card" data-cat="headphone">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_39_pro06.png"
-                    alt="Radiant View LCD"><img src="imgs/imgi_40_pro11.png"
+                <a href="#"><img src="imgs/imgi_84_pro06.png"
+                    alt="Radiant View LCD"><img src="imgs/111.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -862,9 +822,9 @@
               </div>
             </div>
 
-            <div class="rec-card" data-cat="mouse">
+            <div class="rec-card" data-cat="ipad">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_37_pro02.png"
+                <a href="#"><img src="imgs/unnamed-removebg-preview.png"
                     alt="Aero Control Pro"><img src="imgs/imgi_36_pro10.png"
                     alt="hover"></a>
               </div>
@@ -895,10 +855,10 @@
               </div>
             </div>
 
-            <div class="rec-card" data-cat="keyboard">
+            <div class="rec-card" data-cat="mouse">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_39_pro06.png"
-                    alt="Ultra Bright LCD"><img src="imgs/imgi_40_pro11.png"
+                <a href="#"><img src="imgs/download-removebg-preview.png"
+                    alt="Ultra Bright LCD"><img src="imgs/mouse22.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -928,10 +888,11 @@
               </div>
             </div>
 
-            <div class="rec-card" data-cat="laptop">
+            <div class="rec-card" data-cat="keyboard">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_37_pro02.png"
-                    alt="Supreme Tech Phone"><img src="imgs/imgi_36_pro10.png"
+                <a href="#"><img src="imgs/imgi_30_pro09.png"
+                    alt="Supreme Tech Phone"><img
+                    src="imgs/black-leather-sticker-for-keyboard-kimo-store-1-removebg-preview.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -963,8 +924,9 @@
 
             <div class="rec-card" data-cat="headphone">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_39_pro06.png"
-                    alt="Pure Bass Headphones"><img src="imgs/imgi_40_pro11.png"
+                <a href="#"><img src="imgs/imgi_32_pro01.png"
+                    alt="Pure Bass Headphones"><img
+                    src="imgs/images-removebg-preview.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -998,7 +960,7 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 5: SALE BANNER ========== -->
+      <!--  SECTION 5: SALE BANNER  -->
       <section class="sale-banner-section">
         <div class="container">
           <div class="sale-banner">
@@ -1016,7 +978,7 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 6: RECOMMENDED PRODUCTS ========== -->
+      <!--  SECTION 6: RECOMMENDED PRODUCTS  -->
       <section class="rec-section">
         <div class="container">
           <div class="rec-section-header">
@@ -1027,8 +989,9 @@
 
             <div class="rec-card">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_37_pro02.png"
-                    alt="iPad Standard Plus"><img src="imgs/imgi_36_pro10.png"
+                <a href="#"><img src="imgs/imgi_32_pro01.png"
+                    alt="iPad Standard Plus"><img
+                    src="imgs/images-removebg-preview.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -1061,8 +1024,9 @@
 
             <div class="rec-card">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_39_pro06.png"
-                    alt="Nexus Mobile Pro"><img src="imgs/imgi_40_pro11.png"
+                <a href="#"><img src="imgs/imgi_30_pro09.png"
+                    alt="Nexus Mobile Pro"><img
+                    src="imgs/black-leather-sticker-for-keyboard-kimo-store-1-removebg-preview.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -1094,8 +1058,8 @@
 
             <div class="rec-card">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_37_pro02.png"
-                    alt="Elite Audio Gear"><img src="imgs/imgi_36_pro10.png"
+                <a href="#"><img src="imgs/download-removebg-preview.png"
+                    alt="Elite Audio Gear"><img src="imgs/mouse22.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -1127,8 +1091,8 @@
 
             <div class="rec-card">
               <div class="rec-img">
-                <a href="#"><img src="imgs/imgi_39_pro06.png"
-                    alt="Compact Keys Elite"><img src="imgs/imgi_40_pro11.png"
+                <a href="#"><img src="imgs/unnamed-removebg-preview.png"
+                    alt="Compact Keys Elite"><img src="imgs/imgi_36_pro10.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -1162,7 +1126,7 @@
             <div class="rec-card">
               <div class="rec-img">
                 <a href="#"><img src="imgs/imgi_37_pro02.png"
-                    alt="Smart Watch Ultra"><img src="imgs/imgi_36_pro10.png"
+                    alt="Smart Watch Ultra"><img src="imgs/imgi_29_pro05.png"
                     alt="hover"></a>
               </div>
               <div class="rec-info">
@@ -1196,7 +1160,7 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 7: BRANDS ========== -->
+      <!--  SECTION 7: BRANDS  -->
       <section class="brands-section">
         <div class="container">
           <div class="brands-grid">
@@ -1214,7 +1178,7 @@
         </div>
       </section>
 
-      <!-- ========== SECTION 8: BLOGS ========== -->
+      <!--  SECTION 8: BLOGS  -->
       <section class="blog-section">
         <div class="container">
           <div class="blog-header">
@@ -1282,7 +1246,7 @@
 
     </main>
 
-    <!-- ========== OFFER BANNER ========== -->
+    <!--  OFFER BANNER  -->
     <section class="offer-banner-section">
       <div class="offer-banner-inner">
         <div class="offer-banner-text">
@@ -1308,9 +1272,7 @@
       </div>
     </section>
 
-    <!-- ============================================================
-     FOOTER
-     ============================================================ -->
+    <!-- FOOTER -->
     <footer class="site-footer">
 
       <!-- Service Pillars -->
@@ -1357,7 +1319,7 @@
 
             <!-- Col 1: Logo + Desc + Socials -->
             <div class="footer-col">
-              <img src="imgs/logo_200x@2x.webp" alt="Gadgetize"
+              <img src="imgs/imgi_6_logo_200x@2x.png" alt="Gadgetize"
                 class="footer-logo-img">
               <p>Lorem ipsum dolor sit amet consectetur. Eu dolor faucibus sit
                 fames elit ac. Hendrerit ultrices morbi faucibus.</p>
@@ -1440,15 +1402,15 @@
               Accessories</a>. All Rights Reserved. Powered by <a href="#"
               style="color:var(--green);font-weight:600;">UIPARADOX</a>.</p>
           <div class="payment-icons">
-            <img src="https://img.icons8.com/color/48/amazon.png" width="28"
+            <img src="./imgs/icons8-amazon-48.png" width="28"
               alt="Amazon">
-            <img src="https://img.icons8.com/color/48/apple-pay.png" width="40"
+            <img src="./imgs/icons8-apple-pay-50.png" width="40"
               alt="Apple Pay">
-            <img src="https://img.icons8.com/color/48/mastercard.png" width="32"
+            <img src="./imgs/icons8-google-pay-48.png" width="32"
               alt="Mastercard">
-            <img src="https://img.icons8.com/color/48/paypal.png" width="28"
+            <img src="./imgs/icons8-paypal-48.png" width="28"
               alt="PayPal">
-            <img src="https://img.icons8.com/color/48/visa.png" width="36"
+            <img src="./imgs/icons8-visa-48.png" width="36"
               alt="Visa">
           </div>
         </div>
@@ -1466,6 +1428,6 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
-
+    <script src="js/dark-mode.js"></script>
   </body>
 </html>
