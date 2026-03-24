@@ -1,6 +1,4 @@
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
+/*  RESET & BASE */
 *,
 *::before,
 *::after {
@@ -55,9 +53,7 @@ button {
   cursor: pointer;
 }
 
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
+/* ANIMATIONS */
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -91,9 +87,7 @@ button {
   }
 }
 
-/* ============================================================
-   TOP BAR
-   ============================================================ */
+/* TOP BAR */
 .top-bar {
   background: var(--green);
   color: var(--white);
@@ -150,8 +144,9 @@ button {
   width: 20px;
   height: 14px;
   border-radius: 2px;
-  object-fit: cover;
   flex-shrink: 0;
+  display: inline-block;
+  background-size: cover;
 }
 
 .tb-arrow {
@@ -226,9 +221,7 @@ button {
   font-weight: 600;
 }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+/* HEADER */
 .site-header {
   background: var(--white);
   padding: 14px 0;
@@ -379,9 +372,9 @@ button {
   font-weight: 500;
 }
 
-/* ============================================================
+/* 
    NAVBAR
-   ============================================================ */
+    */
 .main-nav {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -649,16 +642,16 @@ button {
   justify-content: center;
 }
 
-/* ============================================================
+/* 
    MAIN
-   ============================================================ */
+    */
 .site-main {
   padding: 30px 0 0;
 }
 
-/* ============================================================
+/* 
    SECTION 1: HERO
-   ============================================================ */
+    */
 .hero-section {
   margin-bottom: 30px;
 }
@@ -749,9 +742,9 @@ button {
 
 /* Hero Animation */
 
-/* ============================================================
+/* 
    SECTION 2: CATEGORIES
-   ============================================================ */
+    */
 .cat-section {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -809,9 +802,9 @@ button {
   color: #999;
 }
 
-/* ============================================================
+/* 
    SECTION 3: FEATURED PRODUCTS
-   ============================================================ */
+    */
 .featured-section {
   margin-bottom: 30px;
 }
@@ -949,9 +942,9 @@ button {
   gap: 12px;
 }
 
-/* ============================================================
+/* 
    PRODUCT CARDS (Featured)
-   ============================================================ */
+    */
 .pro-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -1145,9 +1138,9 @@ button {
   color: var(--white);
 }
 
-/* ============================================================
+/* 
    SECTION 4 & 6: REC PRODUCTS
-   ============================================================ */
+    */
 .rec-section {
   padding: 10px 0 30px;
 }
@@ -1412,9 +1405,9 @@ button {
   transform: translateY(-50%) translateX(0);
 }
 
-/* ============================================================
+/* 
    SECTION 5: SALE BANNER
-   ============================================================ */
+    */
 .sale-banner-section {
   margin-bottom: 30px;
   display: flex;
@@ -1467,9 +1460,9 @@ button {
   transform: scale(0.9);
 }
 
-/* ============================================================
+/* 
    SECTION 7: BRANDS
-   ============================================================ */
+    */
 .brands-section {
   margin-bottom: 30px;
   background: var(--white);
@@ -1513,9 +1506,9 @@ button {
   opacity: 1;
 }
 
-/* ============================================================
+/* 
    SECTION 8: BLOGS
-   ============================================================ */
+    */
 .blog-section {
   margin-bottom: 0;
 }
@@ -1611,9 +1604,9 @@ button {
   text-decoration: underline;
 }
 
-/* ============================================================
+/* 
    OFFER BANNER
-   ============================================================ */
+    */
 .offer-banner-section {
   display: flex;
   justify-content: center;
@@ -1725,9 +1718,9 @@ button {
   transform: scale(1.05);
 }
 
-/* ============================================================
+/* 
    FOOTER
-   ============================================================ */
+    */
 .site-footer {
   background: var(--white);
   margin-top: 0;
@@ -1957,9 +1950,9 @@ button {
   padding: 2px 6px;
 }
 
-/* ============================================================
+/* 
    SCROLL TO TOP
-   ============================================================ */
+    */
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -1995,9 +1988,9 @@ button {
   background: var(--green-dark);
 }
 
-/* ============================================================
+/* 
    CUSTOM SCROLLBAR
-   ============================================================ */
+    */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -2012,9 +2005,9 @@ button {
   background: #333;
 }
 
-/* ============================================================
+/* 
    RESPONSIVE
-   ============================================================ */
+    */
 @media (max-width: 1199px) {
   .featured-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2181,4 +2174,701 @@ button {
   .sale-text p {
     font-size: 15px;
   }
+}
+
+/* ── Smooth Transitions على كل العناصر ── */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ── Dark Mode Variables ── */
+body.dark-mode {
+  --white: #1a1a2e;
+  --gray-bg: #0f0f1a;
+  --gray-light: #252540;
+  --border: #2e2e4a;
+  --text: #e8e8f0;
+  --text-muted: #9090b0;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.6);
+  --green-light: #0d2b1e;
+}
+
+/* ── Top Bar ── */
+body.dark-mode .top-bar {
+  background: #004f28;
+  border-bottom: 1px solid #003d1e;
+}
+
+/* ── Header ── */
+body.dark-mode .site-header {
+  background: #1a1a2e;
+  border-bottom-color: #2e2e4a;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Search Bar ── */
+body.dark-mode .search-bar {
+  border-color: #3aba0c;
+}
+
+body.dark-mode .search-bar:focus-within {
+  border-color: var(--green);
+}
+
+body.dark-mode .search-select {
+  background: #252540;
+  border-right-color: #2e2e4a;
+}
+
+body.dark-mode .search-select select,
+body.dark-mode .search-bar input {
+  background: transparent;
+  color: #e8e8f0;
+}
+
+body.dark-mode .search-bar input::placeholder {
+  color: #5a5a7a;
+}
+
+/* ── Navbar ── */
+body.dark-mode .main-nav {
+  background: #1a1a2e;
+  border-bottom-color: #2e2e4a;
+}
+
+body.dark-mode .nav-links > li > a {
+  color: #c0c0d8;
+}
+
+body.dark-mode .nav-links > li > a:hover,
+body.dark-mode .nav-links > li > a.active {
+  color: #4ade80;
+}
+
+body.dark-mode .nav-sale {
+  color: #9090b0;
+}
+
+/* ── Sub Menu ── */
+body.dark-mode .sub-menu {
+  background: #1e1e38;
+  border-color: #2e2e4a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .sub-menu li a {
+  color: #c0c0d8;
+}
+
+body.dark-mode .sub-menu li a:hover {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+
+/* ── Mega Menu ── */
+body.dark-mode .mega-menu {
+  background: #1a1a2e;
+  border-color: #2e2e4a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .mega-left {
+  border-right-color: #2e2e4a;
+}
+
+body.dark-mode .mega-cat {
+  color: #c0c0d8;
+}
+
+body.dark-mode .mega-cat:hover,
+body.dark-mode .mega-cat.active {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+
+body.dark-mode .mega-panel h4 {
+  color: #9090b0;
+}
+
+body.dark-mode .mega-panel ul li a {
+  color: #b0b0cc;
+}
+
+body.dark-mode .mega-panel ul li a:hover {
+  color: #4ade80;
+}
+
+/* ── Top Bar Dropdowns ── */
+body.dark-mode .tb-menu {
+  background: #1e1e38;
+  border-color: #2e2e4a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .tb-item {
+  color: #c0c0d8;
+}
+
+body.dark-mode .tb-item:hover {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+
+body.dark-mode .tb-item.active {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+
+/* ── Category Section ── */
+body.dark-mode .cat-section {
+  background: #1a1a2e;
+}
+
+body.dark-mode .cat-circle {
+  background: #252540;
+}
+
+body.dark-mode .cat-circle:hover {
+  box-shadow: 0 6px 20px rgba(74, 222, 128, 0.15);
+}
+
+body.dark-mode .cat-card h3 {
+  color: #d0d0e8;
+}
+
+body.dark-mode .cat-card p {
+  color: #6060808;
+}
+
+/* ── Featured Section ── */
+body.dark-mode .featured-header {
+  background: #1a1a2e;
+}
+
+body.dark-mode .featured-title {
+  color: #e8e8f0;
+}
+
+body.dark-mode .tab-item {
+  color: #9090b0;
+}
+
+body.dark-mode .tab-item.active,
+body.dark-mode .tab-item:hover {
+  color: #4ade80;
+}
+
+/* ── Product Cards (Featured) ── */
+body.dark-mode .pro-card {
+  background: #1a1a2e;
+}
+
+body.dark-mode .pro-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .pro-card-img {
+  background: #252540;
+}
+
+body.dark-mode .pro-name {
+  color: #4ade80;
+}
+
+body.dark-mode .pro-desc {
+  color: #707090;
+}
+
+body.dark-mode .price-old {
+  color: #555570;
+}
+
+body.dark-mode .price-new {
+  color: #e8e8f0;
+}
+
+body.dark-mode .pro-cart-btn {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark-mode .pro-card:hover .pro-cart-btn {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .pro-action-btn {
+  background: #252540;
+  border-color: #3a3a5a;
+}
+
+body.dark-mode .pro-action-btn:hover {
+  border-color: #4ade80;
+}
+
+body.dark-mode .pro-action-btn i {
+  color: #a0a0c0;
+}
+
+body.dark-mode .pro-action-btn:hover i {
+  color: #4ade80;
+}
+
+/* ── Recommended Cards ── */
+body.dark-mode .rec-section-header {
+  background: #1a1a2e;
+}
+
+body.dark-mode .rec-section-title {
+  color: #e8e8f0;
+}
+
+body.dark-mode .rec-tab {
+  color: #9090b0;
+}
+
+body.dark-mode .rec-tab.active,
+body.dark-mode .rec-tab:hover {
+  color: #4ade80;
+}
+
+body.dark-mode .rec-tab.active::before,
+body.dark-mode .rec-tab:hover::before {
+  background: #4ade80;
+}
+
+body.dark-mode .rec-show-all {
+  color: #c0c0d8;
+}
+
+body.dark-mode .rec-show-all:hover {
+  color: #4ade80;
+}
+
+body.dark-mode .rec-card {
+  background: #1a1a2e;
+}
+
+body.dark-mode .rec-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .rec-info a h3 {
+  color: #4ade80;
+}
+
+body.dark-mode .rec-info p {
+  color: #70708a;
+}
+
+body.dark-mode .rec-price span:first-child {
+  color: #555570;
+}
+
+body.dark-mode .rec-price span:last-child {
+  color: #e8e8f0;
+}
+
+body.dark-mode .rec-cart-btn {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark-mode .rec-card:hover .rec-cart-btn {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .rec-icon {
+  background: #252540;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .rec-icon:hover {
+  background: #4ade80;
+}
+
+body.dark-mode .rec-icon:hover i {
+  color: #0f0f1a;
+}
+
+body.dark-mode .rec-icon i {
+  color: #9090b0;
+}
+
+/* ── Brands Section ── */
+body.dark-mode .brands-section {
+  background: #1a1a2e;
+}
+
+body.dark-mode .brand-card {
+  background: #1a1a2e;
+  border-color: #2e2e4a;
+}
+
+body.dark-mode .brand-card:hover {
+  background: #252540;
+}
+
+body.dark-mode .brand-card img {
+  filter: grayscale(100%) brightness(1.5);
+  opacity: 0.4;
+}
+
+body.dark-mode .brand-card:hover img {
+  filter: brightness(1.2);
+  opacity: 0.9;
+}
+
+/* ── Blog Section ── */
+body.dark-mode .blog-header {
+  background: #1a1a2e;
+}
+
+body.dark-mode .blog-header h2 {
+  color: #e8e8f0;
+}
+
+body.dark-mode .see-all {
+  color: #9090b0;
+}
+
+body.dark-mode .see-all:hover {
+  color: #4ade80;
+}
+
+body.dark-mode .blog-card {
+  background: #1a1a2e;
+}
+
+body.dark-mode .blog-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .blog-date {
+  color: #4ade80;
+}
+
+body.dark-mode .blog-body h3 {
+  color: #d0d0e8;
+}
+
+body.dark-mode .blog-body p {
+  color: #70708a;
+}
+
+body.dark-mode .blog-link {
+  color: #b0b0cc;
+}
+
+body.dark-mode .blog-link:hover {
+  color: #4ade80;
+}
+
+/* ── Footer ── */
+body.dark-mode .site-footer {
+  background: #1a1a2e;
+}
+
+body.dark-mode .footer-services {
+  border-bottom-color: #2e2e4a;
+}
+
+body.dark-mode .service-icon {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark-mode .service-item:hover .service-icon {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .service-item h4 {
+  color: #d0d0e8;
+}
+
+body.dark-mode .service-item p {
+  color: #70708a;
+}
+
+body.dark-mode .footer-logo-img {
+  filter: brightness(1.5);
+}
+
+body.dark-mode .footer-col > p {
+  color: #80809a;
+}
+
+body.dark-mode .footer-follow {
+  color: #d0d0e8;
+}
+
+body.dark-mode .footer-socials a {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark-mode .footer-socials a:hover {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .footer-col h4 {
+  color: #e8e8f0;
+}
+
+body.dark-mode .footer-col ul li a {
+  color: #80809a;
+}
+
+body.dark-mode .footer-col ul li a:hover {
+  color: #4ade80;
+}
+
+body.dark-mode .footer-contact-item i {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark-mode .footer-contact-item:hover i {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .footer-contact-item span {
+  color: #80809a;
+}
+
+body.dark-mode .newsletter {
+  border-color: #2e2e4a;
+}
+
+body.dark-mode .newsletter input {
+  background: #252540;
+  color: #e8e8f0;
+}
+
+body.dark-mode .newsletter input::placeholder {
+  color: #555570;
+}
+
+body.dark-mode .newsletter button {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .newsletter button:hover {
+  background: #22c55e;
+}
+
+body.dark-mode .footer-bottom {
+  background: #141428;
+  border-top-color: #2e2e4a;
+}
+
+body.dark-mode .footer-bottom p {
+  color: #70708a;
+}
+
+body.dark-mode .payment-icons img {
+  border-color: #2e2e4a;
+  filter: brightness(0.8) contrast(0.9);
+}
+
+/* ── Special Offer Sidebar ── */
+body.dark-mode .special-offer {
+  background-color: #004f28;
+}
+
+body.dark-mode .countdown-box {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Scroll To Top ── */
+body.dark-mode .scroll-top {
+  background: #4ade80;
+  color: #0f0f1a;
+}
+
+body.dark-mode .scroll-top:hover {
+  background: #22c55e;
+}
+
+/* ── Mobile Nav ── */
+body.dark-mode .mobile-nav {
+  background: #141428;
+  border-top: 1px solid #2e2e4a;
+}
+
+/* ── Custom Scrollbar ── */
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #3a3a5a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #4ade80;
+}
+
+/* ================================================================
+   DARK MODE TOGGLE BUTTON
+   ================================================================ */
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 5px 12px 5px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.dark-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Switch Track */
+.dark-toggle-track {
+  width: 30px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+/* Switch Thumb */
+.dark-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+}
+
+/* Active State */
+body.dark-mode .dark-toggle-track {
+  background: #4ade80;
+}
+
+body.dark-mode .dark-toggle-thumb {
+  transform: translateX(14px);
+}
+
+/* Icon inside thumb */
+.dark-toggle-thumb::before {
+  content: "☀️";
+  font-size: 7px;
+  line-height: 1;
+}
+
+body.dark-mode .dark-toggle-thumb::before {
+  content: "🌙";
+}
+
+/* Label */
+.dark-toggle-label {
+  font-size: 12px;
+}
+
+/* ============================================
+   FIXES — أضف الكود ده في آخر style.css
+   ============================================ */
+
+/* ── 1. Special Offer: النص أبيض ── */
+.special-offer p,
+.special-offer strong {
+  color: #ffffff !important;
+}
+
+/* ── 2. Countdown في الـ Special Offer: أبيض ── */
+.countdown-box .time-val,
+.countdown-box small {
+  color: #ffffff !important;
+}
+
+/* ── 3. Offer Banner: "Offer ends in" أبيض + Shop Now أبيض ── */
+.offer-banner-text h2 {
+  color: #ffffff !important;
+}
+
+.offer-shop-btn {
+  color: #ffffff !important;
+}
+
+/* ── 4. Offer Banner: العداد أبيض ── */
+.offer-time-box span,
+.offer-time-box small,
+.offer-time-sep {
+  color: #ffffff !important;
+}
+
+/* ── 5. Payment Icons: أوضح ── */
+.payment-icons img {
+  opacity: 1 !important;
+  filter: brightness(1.2) contrast(1.1) !important;
+}
+
+/* ── Fix for Top Bar White Text in Dark Mode ── */
+body.dark-mode .top-bar-welcome,
+body.dark-mode .tb-label,
+body.dark-mode .tb-arrow,
+body.dark-mode .tb-sep,
+body.dark-mode .tb-btn {
+  color: #ffffff !important;
+}
+
+/* عشان الأيقونة أو السهم ميبقاش لونه باهت */
+body.dark-mode .tb-arrow {
+  opacity: 1 !important;
+}
+
+/* ── Search Button Text Color in Dark Mode ── */
+body.dark-mode .search-btn {
+  color: #ffffff !important;
+}
+
+body.dark-mode .browse-btn {
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+}
+
+body.dark-mode .hero-info .hero-tag,
+body.dark-mode .hero-info h1,
+body.dark-mode .hero-info p {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-side .hero-info p {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-side .hero-info h5 {
+  color: #ffffff;
 }
