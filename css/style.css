@@ -1,4 +1,12 @@
-/*  RESET & BASE */
+/* ============================================
+   GADGETIZE — MAIN STYLESHEET
+   style.css
+   ============================================ */
+
+/* ============================================
+   1. RESET & BASE
+   ============================================ */
+
 *,
 *::before,
 *::after {
@@ -41,19 +49,25 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   list-style: none;
 }
+
 img {
   display: block;
   max-width: 100%;
 }
+
 button {
   font-family: inherit;
   cursor: pointer;
 }
 
-/* ANIMATIONS */
+/* ============================================
+   2. ANIMATIONS
+   ============================================ */
+
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -87,7 +101,24 @@ button {
   }
 }
 
-/* TOP BAR */
+/* ============================================
+   3. SMOOTH TRANSITIONS (global)
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ============================================
+   4. TOP BAR
+   ============================================ */
+
 .top-bar {
   background: var(--green);
   color: var(--white);
@@ -118,6 +149,7 @@ button {
   margin: 0 4px;
 }
 
+/* Dropdown wrapper */
 .tb-dropdown {
   position: relative;
 }
@@ -159,6 +191,7 @@ button {
   transform: rotate(180deg);
 }
 
+/* Dropdown menu */
 .tb-menu {
   display: none;
   position: absolute;
@@ -215,13 +248,78 @@ button {
   background: var(--green-light);
   color: var(--green);
 }
+
 .tb-item.active {
   background: var(--green-light);
   color: var(--green);
   font-weight: 600;
 }
 
-/* HEADER */
+/* ============================================
+   5. DARK MODE TOGGLE BUTTON
+   ============================================ */
+
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 5px 12px 5px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  margin-right: -110px;
+}
+
+.dark-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-toggle-track {
+  width: 30px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+
+.dark-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+}
+
+.dark-toggle-thumb::before {
+  content: "☀️";
+  font-size: 7px;
+  line-height: 1;
+}
+
+.dark-toggle-label {
+  font-size: 12px;
+}
+
+/* ============================================
+   6. HEADER
+   ============================================ */
+
 .site-header {
   background: var(--white);
   padding: 14px 0;
@@ -252,6 +350,15 @@ button {
   width: 150px;
 }
 
+/* Logo light/dark toggle */
+.light-logo {
+  display: block;
+}
+.dark-logo {
+  display: none;
+}
+
+/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
@@ -316,6 +423,7 @@ button {
   background: var(--green-dark);
 }
 
+/* User Controls */
 .user-controls {
   display: flex;
   align-items: center;
@@ -334,6 +442,7 @@ button {
 .uc-item:hover {
   color: var(--green);
 }
+
 .uc-icon {
   font-size: 22px;
 }
@@ -363,6 +472,7 @@ button {
   flex-direction: column;
   line-height: 1.3;
 }
+
 .uc-text small {
   font-size: 11px;
   color: #aaa;
@@ -372,9 +482,10 @@ button {
   font-weight: 500;
 }
 
-/* 
-   NAVBAR
-    */
+/* ============================================
+   7. NAVBAR
+   ============================================ */
+
 .main-nav {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -397,6 +508,7 @@ button {
   transform: translateX(-50%);
 }
 
+/* Browse button */
 .browse-wrap {
   position: relative;
 }
@@ -433,6 +545,7 @@ button {
   display: flex;
   animation: fadeDown 0.15s ease;
 }
+
 .mega-menu.open.expanded {
   width: 680px;
 }
@@ -464,6 +577,7 @@ button {
   background: var(--green-light);
   color: var(--green);
 }
+
 .mega-cat i {
   font-size: 10px;
   opacity: 0.5;
@@ -481,6 +595,7 @@ button {
   display: block;
   animation: fadeDown 0.15s ease;
 }
+
 .mega-panel {
   display: none;
 }
@@ -535,6 +650,7 @@ button {
 .nav-links > li > a.active {
   color: var(--green);
 }
+
 .nav-links > li > a.active {
   font-weight: 600;
 }
@@ -556,10 +672,9 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   min-width: 185px;
-  padding: 6px 0;
+  padding: 14px 0 6px;
   z-index: 9999;
   box-shadow: var(--shadow-hover);
-  padding-top: 14px;
 }
 
 .sub-menu::before {
@@ -595,6 +710,7 @@ button {
   color: var(--green);
 }
 
+/* Sale tag */
 .nav-sale {
   margin-left: auto;
   display: flex;
@@ -642,16 +758,18 @@ button {
   justify-content: center;
 }
 
-/* 
-   MAIN
-    */
+/* ============================================
+   8. MAIN WRAPPER
+   ============================================ */
+
 .site-main {
   padding: 30px 0 0;
 }
 
-/* 
-   SECTION 1: HERO
-    */
+/* ============================================
+   9. SECTION 1 — HERO
+   ============================================ */
+
 .hero-section {
   margin-bottom: 30px;
 }
@@ -680,9 +798,11 @@ button {
 .hero-side {
   overflow: hidden;
 }
+
 .hero-side img {
   transition: transform 0.4s;
 }
+
 .hero-side:hover img {
   transform: scale(1.06);
 }
@@ -716,6 +836,7 @@ button {
   line-height: 1.3;
   margin-bottom: 4px;
 }
+
 .hero-info p {
   font-size: 14px;
   margin-bottom: 16px;
@@ -740,11 +861,10 @@ button {
   color: var(--white);
 }
 
-/* Hero Animation */
+/* ============================================
+   10. SECTION 2 — CATEGORIES
+   ============================================ */
 
-/* 
-   SECTION 2: CATEGORIES
-    */
 .cat-section {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -787,10 +907,12 @@ button {
   transform: scale(1.07);
   box-shadow: 0 6px 20px rgba(0, 103, 54, 0.15);
 }
+
 .cat-circle img {
   width: 60%;
   object-fit: contain;
 }
+
 .cat-card h3 {
   font-size: 13px;
   font-weight: 600;
@@ -802,13 +924,15 @@ button {
   color: #999;
 }
 
-/* 
-   SECTION 3: FEATURED PRODUCTS
-    */
+/* ============================================
+   11. SECTION 3 — FEATURED PRODUCTS
+   ============================================ */
+
 .featured-section {
   margin-bottom: 30px;
 }
 
+/* Special Offer Sidebar */
 .special-offer {
   background: var(--green);
   background-image: url("../imgs/mmmm.webp");
@@ -830,6 +954,16 @@ button {
   font-weight: 700;
   margin-bottom: 14px;
 }
+.special-offer p {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #fff !important;
+}
+.special-offer strong {
+  font-size: 20px;
+  color: #fff !important;
+}
 
 .offer-img img {
   width: 100%;
@@ -840,14 +974,6 @@ button {
 
 .offer-img img:hover {
   transform: scale(0.88);
-}
-.special-offer p {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.special-offer strong {
-  font-size: 20px;
 }
 
 .offer-countdown {
@@ -865,17 +991,21 @@ button {
   min-width: 52px;
 }
 
-.time-val {
+.countdown-box .time-val {
   display: block;
   font-size: 22px;
   font-weight: 700;
   line-height: 1;
+  color: #fff !important;
 }
+
 .countdown-box small {
   font-size: 10px;
   opacity: 0.8;
+  color: #fff !important;
 }
 
+/* Featured Header + Tabs */
 .featured-header {
   display: flex;
   align-items: center;
@@ -942,9 +1072,7 @@ button {
   gap: 12px;
 }
 
-/* 
-   PRODUCT CARDS (Featured)
-    */
+/* Product Cards */
 .pro-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -961,6 +1089,7 @@ button {
   box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
 }
+
 .pro-card.hidden {
   display: none;
 }
@@ -981,6 +1110,7 @@ button {
   object-fit: contain;
   transition: transform 0.35s;
 }
+
 .pro-card:hover .pro-card-img img {
   transform: scale(1.08);
 }
@@ -1108,6 +1238,7 @@ button {
   gap: 8px;
   margin-bottom: 10px;
 }
+
 .price-old {
   font-size: 12px;
   color: #bbb;
@@ -1138,9 +1269,10 @@ button {
   color: var(--white);
 }
 
-/* 
-   SECTION 4 & 6: REC PRODUCTS
-    */
+/* ============================================
+   12. SECTIONS 4 & 6 — POPULAR / RECOMMENDED
+   ============================================ */
+
 .rec-section {
   padding: 10px 0 30px;
 }
@@ -1213,6 +1345,7 @@ button {
   transition: color 0.2s;
   white-space: nowrap;
 }
+
 .rec-show-all:hover {
   color: var(--green);
 }
@@ -1405,9 +1538,10 @@ button {
   transform: translateY(-50%) translateX(0);
 }
 
-/* 
-   SECTION 5: SALE BANNER
-    */
+/* ============================================
+   13. SECTION 5 — SALE BANNER
+   ============================================ */
+
 .sale-banner-section {
   margin-bottom: 30px;
   display: flex;
@@ -1443,26 +1577,27 @@ button {
   color: #ffd700;
   font-weight: 700;
 }
-.sale-img img {
-  height: 160px;
+
+.sale-img img,
+.sale-offer img {
   object-fit: contain;
   transition: transform 0.4s;
 }
-.sale-img img:hover {
-  transform: scale(0.9);
+.sale-img img {
+  height: 160px;
 }
 .sale-offer img {
   height: 120px;
-  object-fit: contain;
-  transition: transform 0.4s;
 }
+.sale-img img:hover,
 .sale-offer img:hover {
   transform: scale(0.9);
 }
 
-/* 
-   SECTION 7: BRANDS
-    */
+/* ============================================
+   14. SECTION 7 — BRANDS
+   ============================================ */
+
 .brands-section {
   margin-bottom: 30px;
   background: var(--white);
@@ -1506,9 +1641,10 @@ button {
   opacity: 1;
 }
 
-/* 
-   SECTION 8: BLOGS
-    */
+/* ============================================
+   15. SECTION 8 — BLOGS
+   ============================================ */
+
 .blog-section {
   margin-bottom: 0;
 }
@@ -1527,6 +1663,7 @@ button {
   font-size: 18px;
   font-weight: 700;
 }
+
 .see-all {
   font-size: 14px;
   color: #555;
@@ -1556,12 +1693,14 @@ button {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
+
 .blog-img img {
   width: 100%;
   height: 185px;
   object-fit: cover;
   transition: transform 0.4s;
 }
+
 .blog-card:hover .blog-img img {
   transform: scale(1.04);
 }
@@ -1593,6 +1732,7 @@ button {
   margin-bottom: 14px;
   line-height: 1.6;
 }
+
 .blog-link {
   font-size: 13px;
   font-weight: 700;
@@ -1604,9 +1744,10 @@ button {
   text-decoration: underline;
 }
 
-/* 
-   OFFER BANNER
-    */
+/* ============================================
+   16. OFFER BANNER
+   ============================================ */
+
 .offer-banner-section {
   display: flex;
   justify-content: center;
@@ -1617,14 +1758,14 @@ button {
   width: 1320px;
   max-width: 100%;
   background: url("../imgs/imgi_171_sale-banner.png") center/cover no-repeat;
+  border-radius: var(--radius-lg);
+  min-height: 200px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 36px 60px;
-  min-height: 220px;
-  position: relative;
+  justify-content: space-around;
+  padding: 30px 50px;
+  color: var(--white);
   overflow: hidden;
-  border-radius: var(--radius-lg);
 }
 
 .offer-banner-text {
@@ -1638,11 +1779,30 @@ button {
 .offer-banner-text h2 {
   font-size: 30px;
   font-weight: 700;
-  color: var(--white);
+  color: #ffffff !important;
   margin-bottom: 16px;
 }
+
 .offer-banner-text h2 span {
   color: #ffd700;
+}
+
+.offer-shop-btn {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 28px;
+  border-radius: var(--radius);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.offer-shop-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
 }
 
 .offer-timer {
@@ -1666,39 +1826,25 @@ button {
   display: block;
   font-size: 26px;
   font-weight: 700;
-  color: var(--white);
+  color: #ffffff !important;
   line-height: 1;
   margin-bottom: 4px;
 }
+
 .offer-time-box small {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #ffffff !important;
+  opacity: 0.65;
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }
+
 .offer-time-sep {
   font-size: 24px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.45);
+  color: #ffffff !important;
+  opacity: 0.45;
   margin-bottom: 18px;
-}
-
-.offer-shop-btn {
-  display: inline-block;
-  background: #1a1a1a;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 700;
-  padding: 11px 28px;
-  border-radius: var(--radius);
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-
-.offer-shop-btn:hover {
-  background: #333;
-  transform: translateY(-2px);
 }
 
 .offer-banner-img {
@@ -1718,14 +1864,16 @@ button {
   transform: scale(1.05);
 }
 
-/* 
-   FOOTER
-    */
+/* ============================================
+   17. FOOTER
+   ============================================ */
+
 .site-footer {
   background: var(--white);
   margin-top: 0;
 }
 
+/* Service pillars */
 .footer-services {
   border-bottom: 1px solid var(--border);
   padding: 36px 0;
@@ -1764,6 +1912,7 @@ button {
   background: var(--green);
   color: var(--white);
 }
+
 .service-item h4 {
   font-size: 13.5px;
   font-weight: 700;
@@ -1775,6 +1924,7 @@ button {
   color: var(--text-muted);
 }
 
+/* Footer main */
 .footer-main {
   padding: 50px 0 36px;
 }
@@ -1789,17 +1939,23 @@ button {
   width: 140px;
   margin-bottom: 14px;
 }
+
 .footer-col > p {
   font-size: 13.5px;
   color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 14px;
 }
+
 .footer-follow {
   font-size: 14px;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 10px !important;
+}
+
+.footer img {
+  width: 150px;
 }
 
 .footer-socials {
@@ -1876,12 +2032,14 @@ button {
   background: var(--green);
   color: var(--white);
 }
+
 .footer-contact-item span {
   font-size: 13.5px;
   color: var(--text-muted);
   line-height: 1.5;
 }
 
+/* Newsletter */
 .newsletter {
   display: flex;
   border: 1.5px solid var(--border);
@@ -1899,6 +2057,7 @@ button {
   font-family: inherit;
   color: var(--text);
 }
+
 .newsletter input::placeholder {
   color: #bbb;
 }
@@ -1919,6 +2078,7 @@ button {
   background: var(--green-dark);
 }
 
+/* Footer bottom */
 .footer-bottom {
   background: var(--white);
   border-top: 1px solid var(--border);
@@ -1930,9 +2090,15 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
 .footer-bottom p {
   font-size: 13px;
-  color: #999;
+  color: var(--text-muted);
+}
+
+.footer-bottom p a {
+  color: var(--green-dark);
+  font-weight: 600;
 }
 
 .payment-icons {
@@ -1940,19 +2106,22 @@ button {
   align-items: center;
   gap: 8px;
 }
+
 .payment-icons img {
   height: 26px;
   width: auto;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 1 !important;
+  filter: brightness(1.2) contrast(1.1) !important;
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 2px 6px;
 }
 
-/* 
-   SCROLL TO TOP
-    */
+/* ============================================
+   18. SCROLL TO TOP
+   ============================================ */
+
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -1984,13 +2153,15 @@ button {
   transform: translateY(0);
   pointer-events: all;
 }
+
 .scroll-top:hover {
   background: var(--green-dark);
 }
 
-/* 
-   CUSTOM SCROLLBAR
-    */
+/* ============================================
+   19. CUSTOM SCROLLBAR
+   ============================================ */
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -2005,9 +2176,10 @@ button {
   background: #333;
 }
 
-/* 
-   RESPONSIVE
-    */
+/* ============================================
+   20. RESPONSIVE
+   ============================================ */
+
 @media (max-width: 1199px) {
   .featured-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2123,7 +2295,10 @@ button {
   .hero-info h1 {
     font-size: 20px;
   }
-  /* إخفاء الـ side banners على الموبايل */
+  .hero-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
   .hero-section .col-xl-4 {
     display: none !important;
   }
@@ -2131,10 +2306,6 @@ button {
     width: 100% !important;
     flex: 0 0 100% !important;
     max-width: 100% !important;
-  }
-  .hero-btn {
-    padding: 7px 14px;
-    font-size: 13px;
   }
 }
 
@@ -2176,20 +2347,11 @@ button {
   }
 }
 
-/* ── Smooth Transitions على كل العناصر ── */
-*,
-*::before,
-*::after {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
+/* ============================================
+   21. DARK MODE — Variables
+   ============================================ */
 
-/* ── Dark Mode Variables ── */
 body.dark-mode {
-  --white: #1a1a2e;
   --gray-bg: #0f0f1a;
   --gray-light: #252540;
   --border: #2e2e4a;
@@ -2200,24 +2362,83 @@ body.dark-mode {
   --green-light: #0d2b1e;
 }
 
-/* ── Top Bar ── */
+/* ============================================
+   22. DARK MODE — Toggle Button States
+   ============================================ */
+
+body.dark-mode .dark-toggle-track {
+  background: #4ade80;
+}
+body.dark-mode .dark-toggle-thumb {
+  transform: translateX(14px);
+}
+body.dark-mode .dark-toggle-thumb::before {
+  content: "🌙";
+}
+
+/* ============================================
+   23. DARK MODE — Logo Switch
+   ============================================ */
+
+body.dark-mode .light-logo {
+  display: none;
+}
+body.dark-mode .dark-logo {
+  display: block;
+}
+
+/* ============================================
+   24. DARK MODE — Top Bar
+   ============================================ */
+
 body.dark-mode .top-bar {
   background: #004f28;
   border-bottom: 1px solid #003d1e;
 }
 
-/* ── Header ── */
+body.dark-mode .top-bar-welcome,
+body.dark-mode .tb-label,
+body.dark-mode .tb-arrow,
+body.dark-mode .tb-sep,
+body.dark-mode .tb-btn {
+  color: #ffffff !important;
+}
+
+body.dark-mode .tb-arrow {
+  opacity: 1 !important;
+}
+
+body.dark-mode .tb-menu {
+  background: #1e1e38;
+  border-color: #2e2e4a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .tb-item {
+  color: #c0c0d8;
+}
+body.dark-mode .tb-item:hover {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+body.dark-mode .tb-item.active {
+  background: #0d2b1e;
+  color: #4ade80;
+}
+
+/* ============================================
+   25. DARK MODE — Header
+   ============================================ */
+
 body.dark-mode .site-header {
   background: #1a1a2e;
   border-bottom-color: #2e2e4a;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ── Search Bar ── */
 body.dark-mode .search-bar {
   border-color: #3aba0c;
 }
-
 body.dark-mode .search-bar:focus-within {
   border-color: var(--green);
 }
@@ -2233,11 +2454,23 @@ body.dark-mode .search-bar input {
   color: #e8e8f0;
 }
 
+body.dark-mode .search-select select option,
+body.dark-mode .search-bar input {
+  background: #1a1a2e;
+  color: #fff;
+}
+
 body.dark-mode .search-bar input::placeholder {
   color: #5a5a7a;
 }
+body.dark-mode .search-btn {
+  color: #ffffff !important;
+}
 
-/* ── Navbar ── */
+/* ============================================
+   26. DARK MODE — Navbar
+   ============================================ */
+
 body.dark-mode .main-nav {
   background: #1a1a2e;
   border-bottom-color: #2e2e4a;
@@ -2246,7 +2479,6 @@ body.dark-mode .main-nav {
 body.dark-mode .nav-links > li > a {
   color: #c0c0d8;
 }
-
 body.dark-mode .nav-links > li > a:hover,
 body.dark-mode .nav-links > li > a.active {
   color: #4ade80;
@@ -2256,7 +2488,11 @@ body.dark-mode .nav-sale {
   color: #9090b0;
 }
 
-/* ── Sub Menu ── */
+body.dark-mode .browse-btn {
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+}
+
 body.dark-mode .sub-menu {
   background: #1e1e38;
   border-color: #2e2e4a;
@@ -2266,13 +2502,11 @@ body.dark-mode .sub-menu {
 body.dark-mode .sub-menu li a {
   color: #c0c0d8;
 }
-
 body.dark-mode .sub-menu li a:hover {
   background: #0d2b1e;
   color: #4ade80;
 }
 
-/* ── Mega Menu ── */
 body.dark-mode .mega-menu {
   background: #1a1a2e;
   border-color: #2e2e4a;
@@ -2282,114 +2516,99 @@ body.dark-mode .mega-menu {
 body.dark-mode .mega-left {
   border-right-color: #2e2e4a;
 }
-
 body.dark-mode .mega-cat {
   color: #c0c0d8;
 }
-
 body.dark-mode .mega-cat:hover,
 body.dark-mode .mega-cat.active {
   background: #0d2b1e;
   color: #4ade80;
 }
-
 body.dark-mode .mega-panel h4 {
   color: #9090b0;
 }
-
 body.dark-mode .mega-panel ul li a {
   color: #b0b0cc;
 }
-
 body.dark-mode .mega-panel ul li a:hover {
   color: #4ade80;
 }
 
-/* ── Top Bar Dropdowns ── */
-body.dark-mode .tb-menu {
-  background: #1e1e38;
-  border-color: #2e2e4a;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+body.dark-mode .mobile-nav {
+  background: #141428;
+  border-top: 1px solid #2e2e4a;
 }
 
-body.dark-mode .tb-item {
-  color: #c0c0d8;
+/* ============================================
+   27. DARK MODE — Hero
+   ============================================ */
+
+body.dark-mode .hero-info .hero-tag,
+body.dark-mode .hero-info h1,
+body.dark-mode .hero-info p {
+  color: #ffffff;
+}
+body.dark-mode .hero-side .hero-info h5,
+body.dark-mode .hero-side .hero-info p {
+  color: #ffffff;
+}
+body.dark-mode .hero-btn {
+  color: black;
 }
 
-body.dark-mode .tb-item:hover {
-  background: #0d2b1e;
-  color: #4ade80;
-}
+/* ============================================
+   28. DARK MODE — Categories
+   ============================================ */
 
-body.dark-mode .tb-item.active {
-  background: #0d2b1e;
-  color: #4ade80;
-}
-
-/* ── Category Section ── */
 body.dark-mode .cat-section {
   background: #1a1a2e;
 }
-
 body.dark-mode .cat-circle {
   background: #252540;
 }
-
 body.dark-mode .cat-circle:hover {
   box-shadow: 0 6px 20px rgba(74, 222, 128, 0.15);
 }
-
 body.dark-mode .cat-card h3 {
   color: #d0d0e8;
 }
 
-body.dark-mode .cat-card p {
-  color: #6060808;
-}
+/* ============================================
+   29. DARK MODE — Featured Products
+   ============================================ */
 
-/* ── Featured Section ── */
 body.dark-mode .featured-header {
   background: #1a1a2e;
 }
-
 body.dark-mode .featured-title {
   color: #e8e8f0;
 }
-
 body.dark-mode .tab-item {
   color: #9090b0;
 }
-
 body.dark-mode .tab-item.active,
 body.dark-mode .tab-item:hover {
   color: #4ade80;
 }
 
-/* ── Product Cards (Featured) ── */
 body.dark-mode .pro-card {
   background: #1a1a2e;
 }
-
 body.dark-mode .pro-card:hover {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
 }
-
 body.dark-mode .pro-card-img {
   background: #252540;
 }
-
 body.dark-mode .pro-name {
   color: #4ade80;
 }
-
 body.dark-mode .pro-desc {
+  color: #c4c4dc;
+}
+body.dark-mode .price-old {
   color: #707090;
 }
-
-body.dark-mode .price-old {
-  color: #555570;
-}
-
 body.dark-mode .price-new {
   color: #e8e8f0;
 }
@@ -2398,7 +2617,6 @@ body.dark-mode .pro-cart-btn {
   border-color: #4ade80;
   color: #4ade80;
 }
-
 body.dark-mode .pro-card:hover .pro-cart-btn {
   background: #4ade80;
   color: #0f0f1a;
@@ -2408,46 +2626,47 @@ body.dark-mode .pro-action-btn {
   background: #252540;
   border-color: #3a3a5a;
 }
-
 body.dark-mode .pro-action-btn:hover {
   border-color: #4ade80;
 }
-
 body.dark-mode .pro-action-btn i {
   color: #a0a0c0;
 }
-
 body.dark-mode .pro-action-btn:hover i {
   color: #4ade80;
 }
 
-/* ── Recommended Cards ── */
+body.dark-mode .special-offer {
+  background-color: #004f28;
+}
+body.dark-mode .countdown-box {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   30. DARK MODE — Popular / Recommended
+   ============================================ */
+
 body.dark-mode .rec-section-header {
   background: #1a1a2e;
 }
-
 body.dark-mode .rec-section-title {
   color: #e8e8f0;
 }
-
 body.dark-mode .rec-tab {
   color: #9090b0;
 }
-
 body.dark-mode .rec-tab.active,
 body.dark-mode .rec-tab:hover {
   color: #4ade80;
 }
-
 body.dark-mode .rec-tab.active::before,
 body.dark-mode .rec-tab:hover::before {
   background: #4ade80;
 }
-
 body.dark-mode .rec-show-all {
   color: #c0c0d8;
 }
-
 body.dark-mode .rec-show-all:hover {
   color: #4ade80;
 }
@@ -2455,23 +2674,18 @@ body.dark-mode .rec-show-all:hover {
 body.dark-mode .rec-card {
   background: #1a1a2e;
 }
-
 body.dark-mode .rec-card:hover {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
 }
-
 body.dark-mode .rec-info a h3 {
   color: #4ade80;
 }
-
 body.dark-mode .rec-info p {
   color: #70708a;
 }
-
 body.dark-mode .rec-price span:first-child {
   color: #555570;
 }
-
 body.dark-mode .rec-price span:last-child {
   color: #e8e8f0;
 }
@@ -2480,7 +2694,6 @@ body.dark-mode .rec-cart-btn {
   border-color: #4ade80;
   color: #4ade80;
 }
-
 body.dark-mode .rec-card:hover .rec-cart-btn {
   background: #4ade80;
   color: #0f0f1a;
@@ -2490,93 +2703,84 @@ body.dark-mode .rec-icon {
   background: #252540;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
 body.dark-mode .rec-icon:hover {
   background: #4ade80;
 }
-
 body.dark-mode .rec-icon:hover i {
   color: #0f0f1a;
 }
-
 body.dark-mode .rec-icon i {
   color: #9090b0;
 }
 
-/* ── Brands Section ── */
+/* ============================================
+   31. DARK MODE — Brands
+   ============================================ */
+
 body.dark-mode .brands-section {
   background: #1a1a2e;
 }
-
 body.dark-mode .brand-card {
   background: #1a1a2e;
   border-color: #2e2e4a;
 }
-
 body.dark-mode .brand-card:hover {
   background: #252540;
 }
-
 body.dark-mode .brand-card img {
   filter: grayscale(100%) brightness(1.5);
   opacity: 0.4;
 }
-
 body.dark-mode .brand-card:hover img {
   filter: brightness(1.2);
   opacity: 0.9;
 }
 
-/* ── Blog Section ── */
+/* ============================================
+   32. DARK MODE — Blogs
+   ============================================ */
+
 body.dark-mode .blog-header {
   background: #1a1a2e;
 }
-
 body.dark-mode .blog-header h2 {
   color: #e8e8f0;
 }
-
 body.dark-mode .see-all {
   color: #9090b0;
 }
-
 body.dark-mode .see-all:hover {
   color: #4ade80;
 }
-
 body.dark-mode .blog-card {
   background: #1a1a2e;
 }
-
 body.dark-mode .blog-card:hover {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
-
 body.dark-mode .blog-date {
   color: #4ade80;
 }
-
 body.dark-mode .blog-body h3 {
   color: #d0d0e8;
 }
-
 body.dark-mode .blog-body p {
   color: #70708a;
 }
-
 body.dark-mode .blog-link {
   color: #b0b0cc;
 }
-
 body.dark-mode .blog-link:hover {
   color: #4ade80;
 }
 
-/* ── Footer ── */
+/* ============================================
+   33. DARK MODE — Footer
+   ============================================ */
+
 body.dark-mode .site-footer {
   background: #1a1a2e;
 }
-
 body.dark-mode .footer-services {
   border-bottom-color: #2e2e4a;
 }
@@ -2585,16 +2789,13 @@ body.dark-mode .service-icon {
   border-color: #4ade80;
   color: #4ade80;
 }
-
 body.dark-mode .service-item:hover .service-icon {
   background: #4ade80;
   color: #0f0f1a;
 }
-
 body.dark-mode .service-item h4 {
   color: #d0d0e8;
 }
-
 body.dark-mode .service-item p {
   color: #70708a;
 }
@@ -2602,47 +2803,39 @@ body.dark-mode .service-item p {
 body.dark-mode .footer-logo-img {
   filter: brightness(1.5);
 }
-
 body.dark-mode .footer-col > p {
   color: #80809a;
 }
-
 body.dark-mode .footer-follow {
   color: #d0d0e8;
+}
+body.dark-mode .footer-col h4 {
+  color: #e8e8f0;
+}
+body.dark-mode .footer-col ul li a {
+  color: #80809a;
+}
+body.dark-mode .footer-col ul li a:hover {
+  color: #4ade80;
 }
 
 body.dark-mode .footer-socials a {
   border-color: #4ade80;
   color: #4ade80;
 }
-
 body.dark-mode .footer-socials a:hover {
   background: #4ade80;
   color: #0f0f1a;
-}
-
-body.dark-mode .footer-col h4 {
-  color: #e8e8f0;
-}
-
-body.dark-mode .footer-col ul li a {
-  color: #80809a;
-}
-
-body.dark-mode .footer-col ul li a:hover {
-  color: #4ade80;
 }
 
 body.dark-mode .footer-contact-item i {
   border-color: #4ade80;
   color: #4ade80;
 }
-
 body.dark-mode .footer-contact-item:hover i {
   background: #4ade80;
   color: #0f0f1a;
 }
-
 body.dark-mode .footer-contact-item span {
   color: #80809a;
 }
@@ -2650,21 +2843,17 @@ body.dark-mode .footer-contact-item span {
 body.dark-mode .newsletter {
   border-color: #2e2e4a;
 }
-
 body.dark-mode .newsletter input {
   background: #252540;
   color: #e8e8f0;
 }
-
 body.dark-mode .newsletter input::placeholder {
   color: #555570;
 }
-
 body.dark-mode .newsletter button {
   background: #4ade80;
   color: #0f0f1a;
 }
-
 body.dark-mode .newsletter button:hover {
   background: #22c55e;
 }
@@ -2673,9 +2862,12 @@ body.dark-mode .footer-bottom {
   background: #141428;
   border-top-color: #2e2e4a;
 }
-
 body.dark-mode .footer-bottom p {
-  color: #70708a;
+  color: #fff;
+}
+body.dark-mode .footer-bottom p a {
+  color: #4ade80;
+  font-weight: 600;
 }
 
 body.dark-mode .payment-icons img {
@@ -2683,192 +2875,28 @@ body.dark-mode .payment-icons img {
   filter: brightness(0.8) contrast(0.9);
 }
 
-/* ── Special Offer Sidebar ── */
-body.dark-mode .special-offer {
-  background-color: #004f28;
-}
+/* ============================================
+   34. DARK MODE — Scroll To Top
+   ============================================ */
 
-body.dark-mode .countdown-box {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-/* ── Scroll To Top ── */
 body.dark-mode .scroll-top {
   background: #4ade80;
   color: #0f0f1a;
 }
-
 body.dark-mode .scroll-top:hover {
   background: #22c55e;
 }
 
-/* ── Mobile Nav ── */
-body.dark-mode .mobile-nav {
-  background: #141428;
-  border-top: 1px solid #2e2e4a;
-}
+/* ============================================
+   35. DARK MODE — Custom Scrollbar
+   ============================================ */
 
-/* ── Custom Scrollbar ── */
 body.dark-mode ::-webkit-scrollbar-track {
   background: #1a1a2e;
 }
-
 body.dark-mode ::-webkit-scrollbar-thumb {
   background: #3a3a5a;
 }
-
 body.dark-mode ::-webkit-scrollbar-thumb:hover {
   background: #4ade80;
-}
-
-/* ================================================================
-   DARK MODE TOGGLE BUTTON
-   ================================================================ */
-.dark-toggle {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  padding: 5px 12px 5px 8px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s;
-  white-space: nowrap;
-  letter-spacing: 0.3px;
-}
-
-.dark-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Switch Track */
-.dark-toggle-track {
-  width: 30px;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-  position: relative;
-  flex-shrink: 0;
-  transition: background 0.25s;
-}
-
-/* Switch Thumb */
-.dark-toggle-thumb {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 7px;
-}
-
-/* Active State */
-body.dark-mode .dark-toggle-track {
-  background: #4ade80;
-}
-
-body.dark-mode .dark-toggle-thumb {
-  transform: translateX(14px);
-}
-
-/* Icon inside thumb */
-.dark-toggle-thumb::before {
-  content: "☀️";
-  font-size: 7px;
-  line-height: 1;
-}
-
-body.dark-mode .dark-toggle-thumb::before {
-  content: "🌙";
-}
-
-/* Label */
-.dark-toggle-label {
-  font-size: 12px;
-}
-
-/* ============================================
-   FIXES — أضف الكود ده في آخر style.css
-   ============================================ */
-
-/* ── 1. Special Offer: النص أبيض ── */
-.special-offer p,
-.special-offer strong {
-  color: #ffffff !important;
-}
-
-/* ── 2. Countdown في الـ Special Offer: أبيض ── */
-.countdown-box .time-val,
-.countdown-box small {
-  color: #ffffff !important;
-}
-
-/* ── 3. Offer Banner: "Offer ends in" أبيض + Shop Now أبيض ── */
-.offer-banner-text h2 {
-  color: #ffffff !important;
-}
-
-.offer-shop-btn {
-  color: #ffffff !important;
-}
-
-/* ── 4. Offer Banner: العداد أبيض ── */
-.offer-time-box span,
-.offer-time-box small,
-.offer-time-sep {
-  color: #ffffff !important;
-}
-
-/* ── 5. Payment Icons: أوضح ── */
-.payment-icons img {
-  opacity: 1 !important;
-  filter: brightness(1.2) contrast(1.1) !important;
-}
-
-/* ── Fix for Top Bar White Text in Dark Mode ── */
-body.dark-mode .top-bar-welcome,
-body.dark-mode .tb-label,
-body.dark-mode .tb-arrow,
-body.dark-mode .tb-sep,
-body.dark-mode .tb-btn {
-  color: #ffffff !important;
-}
-
-/* عشان الأيقونة أو السهم ميبقاش لونه باهت */
-body.dark-mode .tb-arrow {
-  opacity: 1 !important;
-}
-
-/* ── Search Button Text Color in Dark Mode ── */
-body.dark-mode .search-btn {
-  color: #ffffff !important;
-}
-
-body.dark-mode .browse-btn {
-  color: #4ade80;
-  text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
-}
-
-body.dark-mode .hero-info .hero-tag,
-body.dark-mode .hero-info h1,
-body.dark-mode .hero-info p {
-  color: #ffffff;
-}
-
-body.dark-mode .hero-side .hero-info p {
-  color: #ffffff;
-}
-
-body.dark-mode .hero-side .hero-info h5 {
-  color: #ffffff;
 }
