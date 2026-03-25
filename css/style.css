@@ -274,7 +274,7 @@ button {
   transition: all 0.25s;
   white-space: nowrap;
   letter-spacing: 0.3px;
-  margin-right: -110px;
+  margin-right: 5px;
 }
 
 .dark-toggle:hover {
