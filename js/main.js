@@ -1,7 +1,17 @@
+/* ============================================
+   GADGETIZE — MAIN JAVASCRIPT
+   main.js
+   ============================================ */
+
+/* ============================================
+   1. DOM READY
+   ============================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
-  /* 
-     HELPERS
-      */
+  /* ==========================================
+     2. HELPER — Close All Dropdowns
+     ========================================== */
+
   function closeAllDropdowns() {
     document
       .querySelectorAll(".tb-dropdown")
@@ -12,14 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (megaMenu) megaMenu.classList.remove("open");
   }
 
-  /* 
-     TOP BAR DROPDOWNS (Language + Currency)
-      */
+  /* ==========================================
+     3. TOP BAR DROPDOWNS (Language + Currency)
+     ========================================== */
+
   document.querySelectorAll(".tb-dropdown").forEach((dropdown) => {
     const btn = dropdown.querySelector(".tb-btn");
     const menu = dropdown.querySelector(".tb-menu");
     if (!btn || !menu) return;
 
+    // Toggle on button click
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = menu.classList.contains("open");
@@ -30,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Select item
     menu.querySelectorAll(".tb-item").forEach((item) => {
       item.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -40,14 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
           .forEach((i) => i.classList.remove("active"));
         item.classList.add("active");
 
-        // Update button content
+        // Update button label
         const flag = item.querySelector(".tb-flag");
         const label = item.dataset.label;
         const btnFlag = btn.querySelector(".tb-flag");
         const btnLabel = btn.querySelector(".tb-label");
 
+        // ✅ Fix: copy src + alt (not className) so the flag image updates correctly
         if (flag && btnFlag) {
-          btnFlag.className = flag.className;
+          btnFlag.src = flag.src;
+          btnFlag.alt = flag.alt;
         }
         if (btnLabel) btnLabel.textContent = label;
 
@@ -56,9 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* 
-     MEGA MENU — Browse All Categories
-      */
+  /* ==========================================
+     4. MEGA MENU — Browse All Categories
+     ========================================== */
+
   const browseBtn = document.getElementById("browseBtn");
   const megaMenu = document.getElementById("megaMenu");
 
@@ -67,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const megaPanels = document.querySelectorAll(".mega-panel");
     const megaRight = document.querySelector(".mega-right");
 
+    // Toggle mega menu on button click
     browseBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = megaMenu.classList.contains("open");
@@ -78,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Hover على category يظهر الـ panel الأيمن
+    // Hover on category → show right panel
     megaCats.forEach((cat) => {
       cat.addEventListener("mouseenter", () => {
         megaRight.classList.add("visible");
@@ -93,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // لما الماوس يطلع من المنيو كله — إخفاء الأيمن
+    // Mouse leaves mega menu → hide right panel
     megaMenu.addEventListener("mouseleave", () => {
       megaRight.classList.remove("visible");
       megaMenu.classList.remove("expanded");
@@ -103,14 +120,16 @@ document.addEventListener("DOMContentLoaded", () => {
     megaMenu.addEventListener("click", (e) => e.stopPropagation());
   }
 
-  /* 
-     CLOSE ALL ON OUTSIDE CLICK
-      */
+  /* ==========================================
+     5. CLOSE ALL ON OUTSIDE CLICK
+     ========================================== */
+
   document.addEventListener("click", () => closeAllDropdowns());
 
-  /* 
-     FEATURED PRODUCTS TABS
-      */
+  /* ==========================================
+     6. FEATURED PRODUCTS — Filter Tabs
+     ========================================== */
+
   const tabs = document.querySelectorAll(".tab-item");
   const cards = document.querySelectorAll(".pro-card");
 
@@ -125,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selected === "all" || card.dataset.cat === selected) {
           card.classList.remove("hidden");
           card.style.animation = "none";
-          card.offsetHeight;
+          card.offsetHeight; // reflow
           card.style.animation = "fadeInCard 0.3s ease forwards";
         } else {
           card.classList.add("hidden");
@@ -134,9 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* 
-     ADD TO CART — Featured Cards
-      */
+  /* ==========================================
+     7. ADD TO CART — Featured Cards
+     ========================================== */
+
   document.querySelectorAll(".pro-cart-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const originalText = btn.textContent;
@@ -144,12 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.style.background = "var(--green)";
       btn.style.color = "#fff";
 
-      // Update cart count
-      const cartEl = document.getElementById("cartCount");
-      const mobCartEl = document.getElementById("mobCartCount");
-      if (cartEl) cartEl.textContent = parseInt(cartEl.textContent) + 1;
-      if (mobCartEl)
-        mobCartEl.textContent = parseInt(mobCartEl.textContent) + 1;
+      updateCount("cartCount", 1);
+      updateCount("mobCartCount", 1);
 
       setTimeout(() => {
         btn.textContent = originalText;
@@ -159,9 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* 
-     ADD TO CART — Recommended Cards
-      */
+  /* ==========================================
+     8. ADD TO CART — Recommended Cards
+     ========================================== */
+
   document.querySelectorAll(".rec-cart-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const originalText = btn.textContent;
@@ -169,11 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.style.background = "var(--green)";
       btn.style.color = "#fff";
 
-      const cartEl = document.getElementById("cartCount");
-      const mobCartEl = document.getElementById("mobCartCount");
-      if (cartEl) cartEl.textContent = parseInt(cartEl.textContent) + 1;
-      if (mobCartEl)
-        mobCartEl.textContent = parseInt(mobCartEl.textContent) + 1;
+      updateCount("cartCount", 1);
+      updateCount("mobCartCount", 1);
 
       setTimeout(() => {
         btn.textContent = originalText;
@@ -183,9 +197,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* 
-     WISHLIST BUTTONS
-      */
+  /* ==========================================
+     9. WISHLIST BUTTONS
+     ========================================== */
+
   document
     .querySelectorAll(
       '.pro-action-btn[title="Wishlist"], .rec-icon:first-child',
@@ -198,56 +213,45 @@ document.addEventListener("DOMContentLoaded", () => {
         if (icon.classList.contains("fa-regular")) {
           icon.classList.replace("fa-regular", "fa-solid");
           icon.style.color = "var(--red)";
-          const wishEl = document.getElementById("wishlistCount");
-          const mobWishEl = document.getElementById("mobWishCount");
-          if (wishEl) wishEl.textContent = parseInt(wishEl.textContent) + 1;
-          if (mobWishEl)
-            mobWishEl.textContent = parseInt(mobWishEl.textContent) + 1;
+          updateCount("wishlistCount", 1);
+          updateCount("mobWishCount", 1);
         } else {
           icon.classList.replace("fa-solid", "fa-regular");
           icon.style.color = "";
-          const wishEl = document.getElementById("wishlistCount");
-          const mobWishEl = document.getElementById("mobWishCount");
-          if (wishEl)
-            wishEl.textContent = Math.max(0, parseInt(wishEl.textContent) - 1);
-          if (mobWishEl)
-            mobWishEl.textContent = Math.max(
-              0,
-              parseInt(mobWishEl.textContent) - 1,
-            );
+          updateCount("wishlistCount", -1);
+          updateCount("mobWishCount", -1);
         }
       });
     });
 
-  /* 
-     COUNTDOWN TIMER
-      */
+  /* ==========================================
+     10. COUNTDOWN TIMER
+     ========================================== */
+
   const deadline = new Date();
   deadline.setDate(deadline.getDate() + 11);
   deadline.setHours(deadline.getHours() + 4);
   deadline.setMinutes(deadline.getMinutes() + 35);
 
   function updateCountdown() {
-    const now = Date.now();
-    const diff = deadline - now;
+    const diff = deadline - Date.now();
     if (diff <= 0) return;
 
+    const pad = (n) => String(n).padStart(2, "0");
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
 
-    const pad = (n) => String(n).padStart(2, "0");
-
     const el = (id) => document.getElementById(id);
 
-    // Special offer sidebar countdown
+    // Special offer sidebar
     if (el("days")) el("days").textContent = pad(d);
     if (el("hours")) el("hours").textContent = pad(h);
     if (el("mins")) el("mins").textContent = pad(m);
     if (el("secs")) el("secs").textContent = pad(s);
 
-    // Offer banner countdown
+    // Offer banner
     if (el("ob-days")) el("ob-days").textContent = pad(d);
     if (el("ob-hours")) el("ob-hours").textContent = pad(h);
     if (el("ob-mins")) el("ob-mins").textContent = pad(m);
@@ -257,9 +261,10 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* 
-     FETCH PRODUCTS FROM API (optional)
-      */
+  /* ==========================================
+     11. FETCH PRODUCTS FROM API (optional)
+     ========================================== */
+
   async function fetchProducts() {
     try {
       const res = await fetch(
@@ -267,7 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const data = await res.json();
       console.log("Products loaded:", data.data.length);
-      // يمكن استخدام data.data هنا لتعبئة الكارتس ديناميكيًا
     } catch (err) {
       console.warn("API fetch failed — using static content", err);
     }
@@ -275,9 +279,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchProducts();
 
-  /* 
-     ADD TO CART API (لو المستخدم logged in)
-      */
+  /* ==========================================
+     12. ADD TO CART API (if user is logged in)
+     ========================================== */
+
   async function addToCartAPI(productId) {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -297,9 +302,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* 
-     SEARCH BAR FOCUS EFFECT
-      */
+  /* ==========================================
+     13. SEARCH BAR — Enter Key
+     ========================================== */
+
   const searchInput = document.querySelector(".search-bar input");
   if (searchInput) {
     searchInput.addEventListener("keydown", (e) => {
@@ -309,11 +315,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+}); // end DOMContentLoaded
 
-/* 
-     SCROLL TO TOP
-      */
+/* ============================================
+   14. HELPER — Update Badge Count
+   ============================================ */
+
+function updateCount(id, delta) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = Math.max(0, parseInt(el.textContent) + delta);
+}
+
+/* ============================================
+   15. SCROLL TO TOP
+   ============================================ */
+
 const scrollTopBtn = document.getElementById("scrollTop");
 
 window.addEventListener("scroll", () => {
@@ -328,9 +344,10 @@ scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/* 
-     POPULAR PRODUCTS TABS
-      */
+/* ============================================
+   16. POPULAR PRODUCTS — Filter Tabs
+   ============================================ */
+
 const recTabs = document.querySelectorAll(".rec-tab");
 const recCards = document.querySelectorAll("#recGrid1 .rec-card");
 
@@ -352,13 +369,11 @@ recTabs.forEach((tab) => {
 });
 
 /* ============================================
-   DARK MODE TOGGLE — Gadgetize
-   أضف هذا الكود في آخر main.js
-   أو في ملف منفصل dark-mode.js قبل </body>
+   17. DARK MODE TOGGLE
    ============================================ */
 
 (function () {
-  /* ── 1. Inject Toggle Button في الـ Top Bar ── */
+  /* -- Inject toggle button into Top Bar -- */
   function injectToggleButton() {
     const topBarRight = document.querySelector(".top-bar-right");
     if (!topBarRight) return;
@@ -377,7 +392,6 @@ recTabs.forEach((tab) => {
       <div class="dark-toggle-track">
         <div class="dark-toggle-thumb"></div>
       </div>
-      <span class="dark-toggle-label">Dark Mode</span>
     `;
 
     topBarRight.appendChild(sep);
@@ -386,7 +400,7 @@ recTabs.forEach((tab) => {
     btn.addEventListener("click", toggleDarkMode);
   }
 
-  /* ── 2. Toggle Logic ── */
+  /* -- Toggle logic -- */
   function toggleDarkMode() {
     const isDark = document.body.classList.toggle("dark-mode");
     localStorage.setItem("gadgetize-theme", isDark ? "dark" : "light");
@@ -395,40 +409,32 @@ recTabs.forEach((tab) => {
 
   function updateLabel(isDark) {
     const label = document.querySelector(".dark-toggle-label");
-    if (label) {
-      label.textContent = isDark ? "Light Mode" : "Dark Mode";
-    }
+    if (label) label.textContent = isDark ? "Light Mode" : "Dark Mode";
   }
 
-  /* ── 3. Restore Saved Preference ── */
+  /* -- Restore saved preference -- */
   function restoreTheme() {
     const saved = localStorage.getItem("gadgetize-theme");
-
-    // إذا مفيش إعداد محفوظ → شوف إعداد النظام
     const prefersDark =
       saved === "dark" ||
-      (saved === null && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      (saved === null &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    if (prefersDark) {
-      document.body.classList.add("dark-mode");
-    }
+    if (prefersDark) document.body.classList.add("dark-mode");
   }
 
-  /* ── 4. Watch System Preference Change ── */
+  /* -- Watch system preference changes -- */
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => {
-      // بس لو المستخدم مش غيّر يدوياً
       if (!localStorage.getItem("gadgetize-theme")) {
         document.body.classList.toggle("dark-mode", e.matches);
       }
     });
 
-  /* ── 5. Init ── */
-  // Restore theme فوراً قبل أي render لمنع الوميض
+  /* -- Init (restore theme before first render to prevent flash) -- */
   restoreTheme();
 
-  // Inject button بعد ما الـ DOM يكون جاهز
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       injectToggleButton();
